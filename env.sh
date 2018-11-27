@@ -4,6 +4,7 @@ DOCKER_MANTAINER_NAME=mrakitin
 DOCKER_NAME=olog-mysql-db
 DOCKER_RUN_NAME=olog-mysql-db
 DOCKER_TAG=latest
+DOCKER_NETWORK=olog-network
 
 MYSQL_USER=olog_user
 MYSQL_PASSWORD=password

@@ -2,6 +2,8 @@
 
 . `dirname $0`/env.sh
 
+docker network create ${DOCKER_NETWORK}
+
 # Verifies if a container with the same name is already running.
 CONTAINERS=$(docker ps -a | grep ${DOCKER_RUN_NAME})
 
@@ -20,6 +22,7 @@ fi
 docker run -d --name=${DOCKER_RUN_NAME} -e MYSQL_USER=${MYSQL_USER} \
     -e MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD} -e MYSQL_PASSWORD=${MYSQL_PASSWORD} \
     -e MYSQL_DATABASE=${MYSQL_DATABASE} -p ${MYSQL_PORT}:${MYSQL_PORT} \
+    --network=${DOCKER_NETWORK} \
     ${DOCKER_MANTAINER_NAME}/${DOCKER_NAME}:${DOCKER_TAG} 
 
 docker logs -f ${DOCKER_RUN_NAME}
