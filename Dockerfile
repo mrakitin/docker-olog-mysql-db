@@ -2,7 +2,7 @@
 
 FROM mysql:latest
 
-MAINTAINER Maksim Rakitin
+MAINTAINER Maksim Rakitin <mrakitin@bnl.gov>
 
 # The only operation we should do is to copy the initialization script
 # to the folder mentioned in the documentation
