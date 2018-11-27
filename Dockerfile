@@ -1,12 +1,12 @@
 # Docker image for olog-mysql database
 
-FROM mysql:latest
+FROM mysql:5.7
 
 MAINTAINER Maksim Rakitin <mrakitin@bnl.gov>
 
 ###############################################################################
 # MR: install vim and set configs for bash and vim
-RUN apt-get update && apt-get install -y vim
+RUN apt-get update && apt-get install -y git vim
 # Dot files:
 RUN cd && git clone https://github.com/mrakitin/dotfiles && \
     cp -v dotfiles/bashrc /root/.bashrc && \

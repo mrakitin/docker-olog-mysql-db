@@ -1,15 +1,6 @@
 #!/bin/bash
 
-#
-# An auxiliary script to start a new Docker container. It should be used to test the
-# respective image. To deploy, use the composed repository, available in
-# https://github.com/lnls-sirius/docker-alarm-composed .
-#
-# Gustavo Ciotto Pinton
-# Controls Group - Brazilian Synchrotron Light Source Laboratory - LNLS
-#
-
-. ./env-vars.sh
+. `dirname $0`/env.sh
 
 # Verifies if a container with the same name is already running.
 CONTAINERS=$(docker ps -a | grep ${DOCKER_RUN_NAME})
