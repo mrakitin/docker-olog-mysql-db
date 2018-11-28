@@ -19,9 +19,11 @@ if [ ! -z ${CONTAINERS:+x} ]; then
     docker rm ${DOCKER_RUN_NAME} &> /dev/null
 fi
 
+# mysql port 3306 is exposed by the base image, so we don't expose it here. See
+# https://github.com/docker-library/mysql/blob/master/5.7/Dockerfile#L79
 docker run -d --name=${DOCKER_RUN_NAME} -e MYSQL_USER=${MYSQL_USER} \
     -e MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD} -e MYSQL_PASSWORD=${MYSQL_PASSWORD} \
-    -e MYSQL_DATABASE=${MYSQL_DATABASE} -p ${MYSQL_PORT}:${MYSQL_PORT} \
+    -e MYSQL_DATABASE=${MYSQL_DATABASE} \
     --network=${DOCKER_NETWORK} \
     ${DOCKER_MANTAINER_NAME}/${DOCKER_NAME}:${DOCKER_TAG} 
 
