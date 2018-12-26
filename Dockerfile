@@ -6,7 +6,7 @@ MAINTAINER Maksim Rakitin <mrakitin@bnl.gov>
 
 ###############################################################################
 # MR: install vim and set configs for bash and vim
-RUN apt-get update && apt-get install -y git vim
+RUN apt-get update && apt-get install -y git vim procps
 # Dot files:
 RUN cd && git clone https://github.com/mrakitin/dotfiles && \
     cp -v dotfiles/bashrc /root/.bashrc && \
